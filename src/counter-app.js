@@ -10,11 +10,16 @@ export class counterApp extends DDDSuper(LitElement) {
   constructor() {
     super();
     this.title = "";
+    this.count = 0;
+    this.min= 0;
+    this.max = 100;
   }
 
   static get properties() {
     return {
       title: { type: String },
+      count: { type: Number },
+      max: { type: Number },
     };
   }
 
@@ -39,11 +44,26 @@ export class counterApp extends DDDSuper(LitElement) {
     `];
   }
 
+  decrease(e) {
+    if (this.count > this.min) {
+      this.count--;
+    }
+  }
+
+  increment(e) {
+    if (this.count < this.max) {
+      this.count++;
+    }
+  }
+
   render() {
     return html`
 <div class="wrapper">
-  <div>${this.title}</div>
-  <slot></slot>
+  <div class="number">${this.count}</div>
+  <div class="buttons">
+    <button title="decrease" @click="${this.decrease}">-</button>
+    <button title="increment" @click="${this.increment}">+</button>
+  </div>
 </div>`;
   }
 
