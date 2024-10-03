@@ -19,6 +19,7 @@ export class counterApp extends DDDSuper(LitElement) {
     return {
       title: { type: String },
       count: { type: Number },
+      min: { type: Number },
       max: { type: Number },
     };
   }
