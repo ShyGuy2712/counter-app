@@ -41,6 +41,12 @@ export class counterApp extends DDDSuper(LitElement) {
         padding: 0;
         margin: 0;
       }
+      :host([count="18"]).button {
+        background-color: var(--ddd-theme-default-keystoneYellow);
+      }
+      :host([count="21"]).number {
+        background-color: var(--ddd-theme-default-keystoneYellow);
+      }
     `];
   }
 
